@@ -1,28 +1,11 @@
-// Handles all product-related routes //
-const fs = require("fs");
-const path = require("path");
+const express = require("express");
+const router = express.Router();
+const productController = require("../controllers/productController");
 
-// Function to get all products
-exports.getAllProducts = (req, res) => {
-  fs.readFile(path.join(__dirname, "../products.json"), "utf8", (err, data) => {
-    if (err) {
-      return res.status(500).send("Error loading products");
-    }
-    const products = JSON.parse(data);
-    res.render("index", { products });
-  });
-};
+// Route to display the list of products
+router.get("/", productController.getAllProducts);
 
-// Function to get a single product by its ID
-exports.getProductById = (req, res) => {
-  const productId = parseInt(req.params.id, 10);
-  fs.readFile(path.join(__dirname, "../products.json"), "utf8", (err, data) => {
-    const products = JSON.parse(data);
-    const product = products.find((p) => p.id === productId);
-    if (product) {
-      res.render("product", { product });
-    } else {
-      res.status(404).send("Product not found");
-    }
-  });
-};
+// Route to display a single product by ID
+router.get("/product/:id", productController.getProductById);
+
+module.exports = router;
