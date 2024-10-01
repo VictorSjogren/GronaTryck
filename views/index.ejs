@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product List</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+    <script defer src="/static/script.js"></script>
+    <!-- Link to your JS file -->
+  </head>
+  <body>
+    <h1>Product List</h1>
+
+    <!-- Search Bar -->
+    <input
+      type="text"
+      id="search-input"
+      placeholder="Search for a product..."
+    />
+
+    <!-- Filter Dropdown (Example: By Category) -->
+    <select id="filter-select">
+      <option value="all">All</option>
+      <option value="clothing">Clothing</option>
+      <option value="accessories">Accessories</option>
+    </select>
+
+    <ul id="product-list">
+      <% products.forEach(product => { %>
+      <li
+        class="product-item"
+        data-category="<%= product.category %>"
+        data-name="<%= product.name %>"
+      >
+        <a href="/product/<%= product.id %>">
+          <h2><%= product.name %></h2>
+          <img
+            src="/static/images/<%= product.image %>"
+            alt="<%= product.name %>"
+          />
+
+          <p>Price: <%= product.price %>kr</p>
+        </a>
+      </li>
+      <% }); %>
+    </ul>
+    <h1>hello world</h1>
+  </body>
+  <!-- links to script.js -->
+  <script src="/static/script.js" defer></script>
+</html>
