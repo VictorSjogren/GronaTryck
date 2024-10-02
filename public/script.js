@@ -33,3 +33,80 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+
+// quantity and total price updates
+document.addEventListener("DOMContentLoaded", function () {
+  const basePrice = parseFloat(
+    document.getElementById("base-price").textContent
+  );
+  const quantityInput = document.getElementById("quantity");
+  const quantityDisplay = document.getElementById("quantity-display");
+  const totalPriceElement = document.getElementById("total-price");
+  const totalPriceFinalElement = document.getElementById("total-price-final"); // For TOTAL row
+  const increaseQuantityButton = document.getElementById("increase-quantity");
+  const decreaseQuantityButton = document.getElementById("decrease-quantity");
+
+  // Function to format price with comma as decimal separator (sv-SE locale)
+  function formatPrice(price) {
+    return price.toLocaleString("sv-SE", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+  }
+
+  // Function to update total price and quantity display in the table
+  function updateTotalPrice() {
+    const quantity = parseInt(quantityInput.value);
+    const totalPrice = basePrice * quantity;
+
+    // Update total price in both table cells
+    totalPriceElement.textContent = formatPrice(totalPrice) + " kr";
+    totalPriceFinalElement.textContent = formatPrice(totalPrice) + " kr";
+
+    // Update quantity display in the table
+    quantityDisplay.textContent = quantity;
+  }
+
+  // Increase quantity
+  increaseQuantityButton.addEventListener("click", function () {
+    let quantity = parseInt(quantityInput.value);
+
+    // Increment quantity by 1
+    quantity += 1;
+    quantityInput.value = quantity;
+
+    // Update displayed values
+    updateTotalPrice();
+  });
+
+  // Decrease quantity (minimum 1)
+  decreaseQuantityButton.addEventListener("click", function () {
+    let quantity = parseInt(quantityInput.value);
+
+    // Decrease quantity by 1 if it's greater than 1
+    if (quantity > 1) {
+      quantity -= 1;
+      quantityInput.value = quantity;
+    }
+
+    // Update displayed values
+    updateTotalPrice();
+  });
+
+  // Listen for manual changes to quantity input
+  quantityInput.addEventListener("input", function () {
+    let quantity = parseInt(quantityInput.value);
+
+    // Ensure the quantity is at least 1
+    if (isNaN(quantity) || quantity < 1) {
+      quantity = 1;
+      quantityInput.value = quantity;
+    }
+
+    // Update displayed values
+    updateTotalPrice();
+  });
+
+  // Initialize the total price when the page loads
+  updateTotalPrice();
+});

@@ -3,48 +3,243 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product List</title>
+    <title>GrönnaTrycka</title>
+    <!-- Bootstrap CDN for responsive navbar -->
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="/static/styles.css" />
-    <script defer src="/static/script.js"></script>
-    <!-- Link to your JS file -->
   </head>
   <body>
-    <h1>Product List</h1>
-
-    <!-- Search Bar -->
-    <input
-      type="text"
-      id="search-input"
-      placeholder="Search for a product..."
-    />
-
-    <!-- Filter Dropdown (Example: By Category) -->
-    <select id="filter-select">
-      <option value="all">All</option>
-      <option value="clothing">Clothing</option>
-      <option value="accessories">Accessories</option>
-    </select>
-
-    <ul id="product-list">
-      <% products.forEach(product => { %>
-      <li
-        class="product-item"
-        data-category="<%= product.category %>"
-        data-name="<%= product.name %>"
+    <!-- Header containing the navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
+      <a class="navbar-brand" href="#">
+        <img
+          src="/static/images/gt_logo.png"
+          alt="grönnaTryck Logo"
+          class="logo"
+        />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
       >
-        <a href="/product/<%= product.id %>">
-          <h2><%= product.name %></h2>
-          <img
-            src="/static/images/<%= product.image %>"
-            alt="<%= product.name %>"
-          />
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">Hem</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Sortiment</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Stanley/Stella</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Hållbart</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Om Oss</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
-          <p>Price: <%= product.price %>kr</p>
-        </a>
-      </li>
-      <% }); %>
-    </ul>
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="box">
+        <div class="row">
+          <div>
+            <h1>Sustainable Style for a Better Tomorrow</h1>
+            <p class="lead">
+              At our eco-friendly clothing brand, we believe in creating
+              fashionable garments that respect the environment. Our collection
+              features high-quality, organic materials and a commitment to
+              sustainable production methods.
+            </p>
+            <a href="#" class="btn btn-success btn-lg">Shop Now</a>
+          </div>
+        </div>
+        <img src="static/images/grenf.gif" alt="" />
+      </div>
+    </header>
+    <section class="cards-section">
+      <div class="cards-title">
+        <h2>Discover Our Eco-Friendly Apparel</h2>
+        <p>
+          Expore our curated selection of sustainable clothing and accessories
+          all designed with focus on minimizing enviromental impact
+        </p>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="product-img"></div>
+          <h3>Lorem Ipsum</h3>
+        </div>
+        <div class="card">
+          <div class="product-img"></div>
+          <h3>Lorem Ipsum</h3>
+        </div>
+        <div class="card">
+          <div class="product-img"></div>
+          <h3>Lorem Ipsum</h3>
+        </div>
+        <div class="card">
+          <div class="product-img"></div>
+          <h3>Lorem Ipsum</h3>
+        </div>
+      </div>
+      <div class="big-cards">
+        <div class="card">
+          <div class="product-img"></div>
+          <h3>Lorem Ipsum</h3>
+        </div>
+        <div class="card">
+          <div class="product-img"></div>
+          <h3>Lorem Ipsum</h3>
+        </div>
+        <div class="card">
+          <div class="product-img"></div>
+          <h3>Lorem Ipsum</h3>
+        </div>
+      </div>
+    </section>
+    <section class="hero">
+      <div class="box">
+        <div class="row">
+          <div>
+            <h1>Our</h1>
+            <p class="lead">
+              At the heart of our brand is a deep commitment to environment
+              respondsibility. We carefully source our materials, and
+              continuously seek ways to reduce our carbon footprint. Our goal is
+              to provide you with fasion that not only look great, but also make
+              a positive impact on the planet
+            </p>
+            <a href="#" class="btn btn-success btn-lg">GO NOW</a>
+          </div>
+        </div>
+        <img src="static/images/grenf.gif" alt="" />
+      </div>
+    </section>
+    <section class="cards-section box">
+      <div class="cards-title">
+        <h2>Ad tellus</h2>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <div class="product-img"></div>
+          <h3>Lorem Ipsum</h3>
+        </div>
+        <div class="card">
+          <div class="product-img"></div>
+          <h3>Lorem Ipsum</h3>
+        </div>
+        <div class="card">
+          <div class="product-img"></div>
+          <h3>Lorem Ipsum</h3>
+        </div>
+        <div class="card">
+          <div class="product-img"></div>
+          <h3>Lorem Ipsum</h3>
+        </div>
+      </div>
+    </section>
+    <section class="hero flipped">
+      <div class="box">
+        <div class="row">
+          <div>
+            <h1>My g Nature</h1>
+            <p class="lead">
+              At the heart of our brand is a deep commitment to environment
+              respondsibility. We carefully source our materials, and prioritize
+              ethical manufacturing, and countinously seek ways to reduce our
+              carbon footprint
+            </p>
+            <a href="#" class="btn btn-success btn-lg"
+              >Explore our collection</a
+            >
+          </div>
+        </div>
+        <img src="static/images/grenf.gif" alt="" />
+      </div>
+    </section>
+    <section class="hero hat">
+      <div class="box">
+        <div class="row">
+          <div>
+            <h1>Sustainable Style</h1>
+            <p class="lead">
+              At the heart of our brand is a deep commitment to environment
+              respondsibility. We carefully source our materials, and
+              continuously seek ways to reduce our carbon footprint. Our goal is
+              to provide you with fasion that not only look great, but also make
+              a positive impact on the planet
+            </p>
+            <a href="#" class="btn btn-success btn-lg">Shop Now</a>
+          </div>
+        </div>
+        <img src="static/images/grenf.gif" alt="" />
+      </div>
+    </section>
+    <section class="mailing-list">
+      <h2>Eco-Friendly Fashion for a Greener Future</h2>
+      <p>
+        At the heart of our brand is a deep commitment to environment
+        respondsibility. We carefully source our materials, and continuously
+        seek ways to reduce our carbon footprint.
+      </p>
+      <div class="subscribe">
+        <input type="text" placeholder="Discover our Story" />
+        <button>Learn More</button>
+      </div>
+    </section>
+    <footer>
+      <div class="column">
+        <img src="static/images/gt_logo.png" alt="Logo" />
+        <p>@2024 GrönaTryck, Inc,</p>
+        <p>All right reserved.</p>
+      </div>
+      <div class="column">
+        <h3>Lorem ipsum</h3>
+        <ul>
+          <li><a href="#">Lorem ipsum</a></li>
+          <li><a href="#">Lorem ipsum</a></li>
+          <li><a href="#">Lorem ipsum</a></li>
+          <li><a href="#">Lorem ipsum</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <h3>Lorem ipsum</h3>
+        <ul>
+          <li><a href="#">Lorem ipsum</a></li>
+          <li><a href="#">Lorem ipsum</a></li>
+          <li><a href="#">Lorem ipsum</a></li>
+          <li><a href="#">Lorem ipsum</a></li>
+        </ul>
+      </div>
+      <div class="column">
+        <h3>Lorem ipsum</h3>
+        <ul>
+          <li><a href="#">Lorem ipsum</a></li>
+          <li><a href="#">Lorem ipsum</a></li>
+          <li><a href="#">Lorem ipsum</a></li>
+          <li><a href="#">Lorem ipsum</a></li>
+        </ul>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
-  <!-- links to script.js -->
-  <script src="/static/script.js" defer></script>
 </html>

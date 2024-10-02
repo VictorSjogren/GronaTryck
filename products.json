@@ -4,7 +4,7 @@
     "name": "T-shirt",
     "price": 20,
     "description": "Comfortable cotton T-shirt",
-    "category": "Clothing",
+    "category": "clothing",
     "image": "tshirt.jpg"
   },
   {
@@ -12,7 +12,23 @@
     "name": "Jeans",
     "price": 40,
     "description": "Stylish blue jeans",
-    "category": "Clothing",
+    "category": "clothing",
     "image": "jeans.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Jacket",
+    "category": "clothing",
+    "price": 60,
+    "image": "jacket.jpg",
+    "description": "Warm and comfortable Jacket"
+  },
+  {
+    "id": 4,
+    "name": "Mössa",
+    "category": "accessories",
+    "price": 15,
+    "image": "mössa.jpg",
+    "description": "Stylish hat to complete your outfit"
   }
 ]

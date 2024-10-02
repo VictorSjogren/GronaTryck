@@ -17,7 +17,20 @@ In the index.js file open integrated terminal in the terminal type:
 
 
 
-________________________________________________________________________________________________________________________________________________
+Tips:
+In product.json file how to add new product is by "id", "name", "category", "price", "image", "description".
+something like:
+
+  {
+    "id": 1,
+    "name": "T-shirt",
+    "category": "clothing",
+    "price": 20,
+    "image": "tshirt.jpg",
+    "description": "Comfortable cotton T-shirt"
+  }
+
+_______________________________________________________________________________________________________________________________________________
 Search Functions:
 Create script.js in the public folder for your JavaScript code.
 Add the logic for the search and filter functionality to script.js.

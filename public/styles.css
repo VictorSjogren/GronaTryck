@@ -1,12 +1,212 @@
+/* General body styling */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Arial", sans-serif;
+  background-color: #fef7ee;
 }
 
-ul {
-  list-style-type: none;
+h1 {
+  font-weight: bold;
+  font-size: 50px;
 }
 
-img {
+h2 {
+  font-weight: bold;
+  margin-top: 40px;
+  font-size: 40px;
+}
+
+h3 {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: left;
+  margin-top: 10px;
+}
+
+p {
+  color: #1b1919;
+}
+
+/* Logo in navbar */
+.navbar-brand img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+/* Navbar link styles */
+.navbar-nav .nav-link {
+  color: #333;
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #000;
+}
+
+/* Special button for FAQ (if needed later) */
+.navbar-nav .btn-faq {
+  background-color: #e8f5e9; /* Light green background */
+  border: 1px solid #a5d6a7;
+  color: #388e3c; /* Dark green text */
+  padding: 8px 15px;
+  border-radius: 5px;
+}
+
+.navbar-nav .btn-faq:hover {
+  background-color: #a5d6a7;
+  color: white;
+}
+
+/* Custom styling for the logo 
+.logo {
+  width: px;
+  height: 500px;
+}
+*/
+
+.hero {
+  display: flex;
+  align-items: center;
+  background-color: #bbc2a8;
+  height: 80vh;
+}
+
+.hero.hat {
+  background-color: #fef7ee;
+}
+
+.hero.flipped .box {
+  flex-direction: row-reverse;
+  overflow: hidden;
+}
+
+.hero .box {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero img {
+  width: 50%;
+  height: 80vh;
+  object-fit: cover;
+}
+
+.hero .row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 60px;
+}
+
+.cards-section {
+  text-align: center;
+  padding: 0 60px;
+}
+
+.cards-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 60px;
+}
+
+.cards-section .cards-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.cards-section .cards,
+.cards-section .big-cards {
+  display: flex;
+  width: 100%;
+  margin: 0 40px;
+}
+
+.cards-section .cards .card,
+.cards-section .big-cards .card {
+  width: 100%;
+  height: 400px;
+  margin: 10px;
+}
+
+.cards-section .cards .card .product-img,
+.cards-section .big-cards .product-img {
+  background-color: #388e3ca6;
+  height: 300px;
+}
+
+.mailing-list {
+  height: 500px;
+  background-color: #6e7b54;
+  color: #fef7ee;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 60px;
+}
+
+.mailing-list p {
+  color: #fef7ee;
+}
+
+.mailing-list .subscribe {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mailing-list .subscribe input {
+  padding: 10px;
   width: 250px;
-  height: auto;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.mailing-list .subscribe button {
+  border: none;
+  height: 50px;
+  padding: 10px;
+  background-color: #385318;
+  border-radius: 5px;
+  color: #fef7ee;
+}
+
+.btn-success {
+  background-color: #4fa353;
+  border: none;
+  border-radius: 50px;
+}
+
+footer {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+footer ul li {
+  list-style: none;
+  margin-left: -39px;
+  line-height: 35px;
+}
+
+footer ul li a {
+  color: #717461;
+}
+
+footer img {
+  width: 200px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .navbar-brand {
+    font-size: 20px;
+  }
 }
