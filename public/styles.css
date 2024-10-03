@@ -9,12 +9,6 @@ h1 {
   font-size: 50px;
 }
 
-h2 {
-  font-weight: bold;
-  margin-top: 40px;
-  font-size: 40px;
-}
-
 h3 {
   font-weight: bold;
   font-size: 20px;
@@ -24,6 +18,7 @@ h3 {
 
 p {
   color: #1b1919;
+  font-size: 20px; /* Increase the size as needed */
 }
 
 /* Logo in navbar */
@@ -34,13 +29,15 @@ p {
 
 /* Navbar link styles */
 .navbar-nav .nav-link {
-  color: #333;
-  margin-right: 15px;
-  font-weight: bold;
+  color: #1f1d1d !important; /* Default link color with !important */
+  margin-right: 10px;
+  text-transform: uppercase; /* Optional: make text uppercase */
+  transition: color 0.3s ease; /* Smooth transition for color change */
 }
 
 .navbar-nav .nav-link:hover {
-  color: #000;
+  color: #4fa353 !important; /* Hover color with !important */
+  text-decoration: none; /* Remove underline on hover */
 }
 
 /* Special button for FAQ (if needed later) */
@@ -97,6 +94,22 @@ p {
   justify-content: center;
   align-items: center;
   padding: 0 60px;
+}
+
+.cards-title {
+  text-align: center; /* Center the text for both h2 and p */
+  margin-bottom: 30px; /* Add space below the section */
+}
+
+.cards-title h2 {
+  font-size: 2.5rem; /* Adjust font size for h2 */
+  font-weight: bold;
+}
+
+.cards-title p {
+  font-size: 1rem; /* Adjust font size for paragraph */
+  margin-top: 10px; /* Add some space between h2 and p */
+  line-height: 1.5; /* Improve readability with better line spacing */
 }
 
 .cards-section {
@@ -178,9 +191,16 @@ p {
 }
 
 .btn-success {
-  background-color: #4fa353;
+  background-color: #30510d;
   border: none;
-  border-radius: 50px;
+  border-radius: 3px;
+  color: #d0e0b2; /* Text color inside the button */
+}
+
+.btn-success:hover {
+  background-color: #111010; /* Darker green for hover */
+  color: #fef7ee; /* Text color on hover */
+  border-radius: 5px;
 }
 
 footer {
