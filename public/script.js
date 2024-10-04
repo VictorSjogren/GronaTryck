@@ -110,3 +110,33 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize the total price when the page loads
   updateTotalPrice();
 });
+
+// login button function
+function showLogin() {
+  const loginContainer = document.getElementById("loginContainer");
+  if (
+    loginContainer.style.display === "none" ||
+    loginContainer.style.display === ""
+  ) {
+    loginContainer.style.display = "flex";
+  } else {
+    loginContainer.style.display = "none";
+  }
+}
+
+// login blur effect function
+function showLogin() {
+  const loginContainer = document.getElementById("loginContainer");
+  const blurredOverlay = document.getElementById("blurredOverlay");
+
+  if (
+    loginContainer.style.display === "none" ||
+    loginContainer.style.display === ""
+  ) {
+    loginContainer.style.display = "flex";
+    blurredOverlay.style.display = "block";
+  } else {
+    loginContainer.style.display = "none";
+    blurredOverlay.style.display = "none";
+  }
+}

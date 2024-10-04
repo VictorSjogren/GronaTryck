@@ -230,3 +230,72 @@ footer img {
     font-size: 20px;
   }
 }
+
+.login-button {
+  padding: 10px 20px;
+  background-color: #30510d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+.login-button:hover {
+  background-color: #2980b9;
+}
+
+/* Styling for Login Container */
+.login-container {
+  display: none;
+  flex-direction: column;
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  width: 500px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2; /* Above the blurred overlay */
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+.login-container .links {
+  margin-top: 20px;
+}
+.login-container .links a {
+  display: block;
+  color: #3498db;
+  text-decoration: none;
+  margin: 5px 0;
+}
+.login-container .links a:hover {
+  text-decoration: underline;
+}
+
+/* Blurred Overlay */
+.blurred-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(10px);
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Semi-transparent black to darken the background */
+  z-index: 1; /* Ensure it’s behind the login container but above the rest of the content */
+}
