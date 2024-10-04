@@ -193,14 +193,13 @@ p {
 .btn-success {
   background-color: #30510d;
   border: none;
-  border-radius: 3px;
+  border-radius: 25px;
   color: #d0e0b2; /* Text color inside the button */
 }
 
 .btn-success:hover {
   background-color: #111010; /* Darker green for hover */
   color: #fef7ee; /* Text color on hover */
-  border-radius: 5px;
 }
 
 footer {
@@ -231,18 +230,20 @@ footer img {
   }
 }
 
+/* General Login Button Styling */
 .login-button {
-  padding: 10px 20px;
-  background-color: #30510d;
+  padding: 10px 40px;
+  background-color: #30510d; /* Changed to green */
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 25px;
   cursor: pointer;
   font-size: 1rem;
   transition: background-color 0.3s ease;
 }
+
 .login-button:hover {
-  background-color: #2980b9;
+  background-color: #1b1b1b;
 }
 
 /* Styling for Login Container */
@@ -250,36 +251,89 @@ footer img {
   display: none;
   flex-direction: column;
   background-color: white;
-  padding: 30px;
+  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  text-align: center;
   width: 500px;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  z-index: 2; /* Above the blurred overlay */
+  z-index: 2;
 }
 
-.login-container input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border-radius: 5px;
+/* Header Styling */
+.login-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.login-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  padding: 10px 40px;
+  background-color: #f0f0f0;
   border: 1px solid #ddd;
+  border-radius: 25px;
 }
-.login-container .links {
-  margin-top: 20px;
+.close-button:hover {
+  background-color: #e0e0e0;
 }
-.login-container .links a {
-  display: block;
+
+/* Fields Styling */
+.login-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-fields label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.login-fields input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 25px;
+  border: 1px solid #ddd;
+  background-color: #f0f0f0;
+  font-size: 1rem;
+}
+
+/* Links Styling */
+.links {
+  margin-top: 10px;
+  text-align: left;
+}
+
+.links a {
   color: #3498db;
   text-decoration: none;
-  margin: 5px 0;
+  margin-top: 5px;
+  display: block;
+  font-size: 0.9rem;
 }
-.login-container .links a:hover {
+
+.links a:hover {
   text-decoration: underline;
+}
+
+/* Action Buttons Styling */
+.login-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
 }
 
 /* Blurred Overlay */
@@ -291,11 +345,6 @@ footer img {
   width: 100%;
   height: 100%;
   backdrop-filter: blur(10px);
-  background: rgba(
-    0,
-    0,
-    0,
-    0.5
-  ); /* Semi-transparent black to darken the background */
-  z-index: 1; /* Ensure it’s behind the login container but above the rest of the content */
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
 }

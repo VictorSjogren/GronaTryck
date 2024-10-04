@@ -129,14 +129,14 @@ function showLogin() {
   const loginContainer = document.getElementById("loginContainer");
   const blurredOverlay = document.getElementById("blurredOverlay");
 
-  if (
-    loginContainer.style.display === "none" ||
-    loginContainer.style.display === ""
-  ) {
-    loginContainer.style.display = "flex";
-    blurredOverlay.style.display = "block";
-  } else {
-    loginContainer.style.display = "none";
-    blurredOverlay.style.display = "none";
-  }
+  loginContainer.style.display = "flex";
+  blurredOverlay.style.display = "block";
+}
+
+function closeLogin() {
+  const loginContainer = document.getElementById("loginContainer");
+  const blurredOverlay = document.getElementById("blurredOverlay");
+
+  loginContainer.style.display = "none";
+  blurredOverlay.style.display = "none";
 }

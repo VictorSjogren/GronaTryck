@@ -63,13 +63,22 @@
 
         <!-- Added Login Container Here -->
         <div class="login-container" id="loginContainer">
-          <h2>Logga in</h2>
-          <input type="text" placeholder="Username" />
-          <input type="password" placeholder="Password" />
-          <button class="login-button">Login</button>
-          <div class="links">
-            <a href="#">Create Account</a>
-            <a href="#">Forgot Password?</a>
+          <div class="login-header">
+            <h2>Logga in</h2>
+          </div>
+          <div class="login-fields">
+            <label for="email">E-mail</label>
+            <input type="text" id="email" placeholder="E-mail" />
+            <label for="password">Lösenord</label>
+            <input type="password" id="password" placeholder="Lösenord" />
+            <div class="links">
+              <a href="#">Glömt lösenordet?</a>
+              <a href="#">Skapa ett konto</a>
+            </div>
+          </div>
+          <div class="login-actions">
+            <button class="close-button" onclick="closeLogin()">Stäng</button>
+            <button class="login-button">Logga in</button>
           </div>
         </div>
     
