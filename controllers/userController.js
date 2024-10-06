@@ -1,6 +1,5 @@
 const fs = require("fs");
 const path = require("path");
-const bcrypt = require("bcrypt");
 
 exports.loginUser = (req, res) => {
   const { email, password } = req.body;
@@ -21,16 +20,14 @@ exports.loginUser = (req, res) => {
       const user = users.find((u) => u.email === email);
 
       if (user) {
-        // Assuming password in JSON is hashed
-        bcrypt.compare(password, user.password, (err, result) => {
-          if (result) {
-            console.log("Login successful for user:", user.username);
-            res.json({ success: true, message: "Login successful" });
-          } else {
-            console.log("Invalid credentials for email:", email);
-            res.json({ success: false, message: "Invalid credentials" });
-          }
-        });
+        // Direct password comparison (plaintext)
+        if (user.password === password) {
+          console.log("Login successful for user:", user.username);
+          res.json({ success: true, message: "Login successful" });
+        } else {
+          console.log("Invalid credentials for email:", email);
+          res.json({ success: false, message: "Invalid credentials" });
+        }
       } else {
         console.log("Invalid credentials for email:", email);
         res.json({ success: false, message: "Invalid credentials" });

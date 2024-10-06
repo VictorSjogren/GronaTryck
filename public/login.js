@@ -13,9 +13,14 @@ document
       },
       body: JSON.stringify({ email, password }),
     })
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
       .then((data) => {
-        console.log("Response received:", data);
+        console.log("Response received:", data); // Log server response
         if (data.success) {
           alert("Login successful!");
           closeLogin(); // Close login modal after successful login
@@ -28,13 +33,3 @@ document
         alert("An error occurred during login. Please try again.");
       });
   });
-
-function closeLogin() {
-  const loginContainer = document.getElementById("loginContainer");
-  const blurredOverlay = document.getElementById("blurredOverlay");
-
-  loginContainer.style.display = "none";
-  if (blurredOverlay) {
-    blurredOverlay.style.display = "none";
-  }
-}
