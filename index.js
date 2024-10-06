@@ -1,8 +1,8 @@
 const express = require("express");
-const fs = require("fs");
 const path = require("path");
 const livereload = require("livereload");
 const connectLivereload = require("connect-livereload");
+const cors = require("cors");
 
 const app = express();
 
@@ -16,42 +16,17 @@ app.use("/static", express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
-// Home Route - Display list of products
-app.get("/", (req, res) => {
-  fs.readFile("products.json", "utf8", (err, data) => {
-    if (err) {
-      return res.status(500).send("Error loading products");
-    }
-    const products = JSON.parse(data);
-    res.render("index", { products });
-  });
-});
+// Body parser middleware to handle form submissions
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
 
-// Product Detail Route with improved error handling
-app.get("/product/:id", (req, res) => {
-  const productId = parseInt(req.params.id, 10);
+// Routes
+const userRoutes = require("./routes/userRoutes");
+const productRoutes = require("./routes/productRoutes");
 
-  fs.readFile("products.json", "utf8", (err, data) => {
-    if (err) {
-      // Handle file read errors
-      return res.status(500).send("Error loading products.");
-    }
-
-    try {
-      const products = JSON.parse(data);
-      const product = products.find((p) => p.id === productId);
-
-      if (product) {
-        res.render("product", { product });
-      } else {
-        res.status(404).send("Product not found");
-      }
-    } catch (jsonError) {
-      // Handle JSON parsing errors
-      res.status(500).send("Error parsing product data.");
-    }
-  });
-});
+app.use("/", productRoutes);
+app.use("/user", userRoutes);
 
 // Start the express server
 app.listen(3000, () => {

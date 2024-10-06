@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // login button function
-function showLogin() {
+function toggleLogin() {
   const loginContainer = document.getElementById("loginContainer");
   if (
     loginContainer.style.display === "none" ||
@@ -123,6 +123,14 @@ function showLogin() {
     loginContainer.style.display = "none";
   }
 }
+//closing buttons
+function closeLogin() {
+  const loginContainer = document.getElementById("loginContainer");
+  const blurredOverlay = document.getElementById("blurredOverlay");
+
+  loginContainer.style.display = "none"; // Hide the login popup
+  blurredOverlay.style.display = "none"; // Hide the blurred overlay
+}
 
 // login blur effect function
 function showLogin() {
@@ -131,12 +139,4 @@ function showLogin() {
 
   loginContainer.style.display = "flex";
   blurredOverlay.style.display = "block";
-}
-
-function closeLogin() {
-  const loginContainer = document.getElementById("loginContainer");
-  const blurredOverlay = document.getElementById("blurredOverlay");
-
-  loginContainer.style.display = "none";
-  blurredOverlay.style.display = "none";
 }

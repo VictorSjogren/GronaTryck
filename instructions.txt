@@ -8,6 +8,8 @@ In terminal use the following command to create express ejs:
 npm install express
 npm init -y
 npm install express ejs fs
+npm install cors(for login request to work hehe..)
+
 
 step: 3
 To start the and close the server:
