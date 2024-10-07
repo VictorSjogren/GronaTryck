@@ -6,37 +6,45 @@ exports.loginUser = (req, res) => {
 
   console.log("Login attempt with email:", email);
 
-  // Read users.json to find matching credentials
-  fs.readFile(path.join(__dirname, "../users.json"), "utf8", (err, data) => {
-    if (err) {
-      console.error("Error loading users.json:", err);
-      return res
-        .status(500)
-        .json({ success: false, message: "Error loading users." });
+  // Helper function to handle errors
+  const handleError = (message, error = null) => {
+    if (error) {
+      console.error(message, error);
+    } else {
+      console.log(message);
     }
+    res.status(500).json({ success: false, message });
+  };
 
-    try {
-      const users = JSON.parse(data);
-      const user = users.find((u) => u.email === email);
+  // Read users.json to find matching credentials
+  fs.readFile(
+    path.join(__dirname, "../data/users.json"),
+    "utf8",
+    (err, data) => {
+      if (err) {
+        return handleError("Error loading users.json:", err);
+      }
 
-      if (user) {
+      try {
+        const users = JSON.parse(data);
+        const user = users.find((u) => u.email === email);
+
+        if (!user) {
+          console.log("Invalid credentials for email:", email);
+          return res.json({ success: false, message: "Invalid credentials" });
+        }
+
         // Direct password comparison (plaintext)
         if (user.password === password) {
           console.log("Login successful for user:", user.username);
-          res.json({ success: true, message: "Login successful" });
+          return res.json({ success: true, message: "Login successful" });
         } else {
           console.log("Invalid credentials for email:", email);
-          res.json({ success: false, message: "Invalid credentials" });
+          return res.json({ success: false, message: "Invalid credentials" });
         }
-      } else {
-        console.log("Invalid credentials for email:", email);
-        res.json({ success: false, message: "Invalid credentials" });
+      } catch (jsonError) {
+        return handleError("Error parsing user data:", jsonError);
       }
-    } catch (jsonError) {
-      console.error("Error parsing user data:", jsonError);
-      res
-        .status(500)
-        .json({ success: false, message: "Error parsing user data." });
     }
-  });
+  );
 };
