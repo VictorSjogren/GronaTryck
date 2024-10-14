@@ -82,6 +82,15 @@
   </form>
 </div>
 
+
+<div>
+  <button onclick="addProduct({id: 1, name: 'Eco-Friendly T-shirt', price: 20, description: 'A comfortable t-shirt made from organic cotton.'})">Add Product</button>
+  <button onclick="updateProduct({id: 1, name: 'Updated T-shirt', price: 25, description: 'Updated product description.'})">Update Product</button>
+  <button onclick="deleteProduct(1)">Delete Product</button>
+  <button onclick="getAllProducts()">Show All Products</button>
+</div>
+
+
     <!-- Hero Section -->
     <header class="hero">
       <div class="box">
@@ -265,6 +274,7 @@
     <!-- Scripts -->
     <script src="/static/script.js"></script>
     <script src="/static/login.js"></script>
+    <script src="/static/indexeddb.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
   
